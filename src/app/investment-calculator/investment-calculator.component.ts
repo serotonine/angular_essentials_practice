@@ -1,11 +1,8 @@
 import { Component } from '@angular/core';
-import { InvestmentInputComponent } from './investment-input/investment-input.component';
-import { InvestmentResultsComponent } from './investment-results/investment-results.component';
 
 @Component({
   selector: 'app-investment-calculator',
-  standalone: true,
-  imports: [InvestmentInputComponent, InvestmentResultsComponent],
+  standalone: false,
   templateUrl: './investment-calculator.component.html',
   styleUrl: './investment-calculator.component.css',
 })
