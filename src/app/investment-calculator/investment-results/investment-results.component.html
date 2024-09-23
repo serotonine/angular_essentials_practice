@@ -9,12 +9,23 @@
     </tr>
   </thead>
   <tbody>
+    @for(result of results; track 01 ){
     <tr>
-      <th>1</th>
-      <th>500€</th>
-      <th>100€</th>
-      <th>500€</th>
-      <th>500€</th>
+      <td>{{ result.year }}</td>
+      <td>
+        {{ result.valueEndOfYear | currency : "EUR" : true }}
+      </td>
+      <td>
+        {{ result.annualInvestment | currency : "EUR" : true }}
+      </td>
+
+      <td>
+        {{ result.totalInterest | currency : "EUR" : true }}
+      </td>
+      <td>
+        {{ result.totalAmountInvested | currency : "EUR" : true }}
+      </td>
     </tr>
+    }
   </tbody>
 </table>
