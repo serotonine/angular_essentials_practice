@@ -8,5 +8,6 @@ import { InvestmentOutput } from '../investment-calculator.model';
   styleUrl: './investment-results.component.css',
 })
 export class InvestmentResultsComponent {
-  @Input({ required: true }) results!: InvestmentOutput[];
+  // Could also use the input<InvestmentOutput>() function.
+  @Input({ required: true }) results?: InvestmentOutput[];
 }

@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, output } from '@angular/core';
 import { InvestmentInput } from '../investment-calculator.model';
 import { InvestmentCalculatorService } from '../investment-calculator.service';
 
@@ -12,7 +12,9 @@ export class InvestmentInputComponent {
   constructor(
     private investmentCalculatorService: InvestmentCalculatorService
   ) {}
-  @Output() formSubmitted = new EventEmitter<InvestmentInput>();
+  // Could use output() function (>v18).
+  formSubmitted = output<InvestmentInput>();
+
   userInput = {} as InvestmentInput;
   onSubmit() {
     this.formSubmitted.emit({
