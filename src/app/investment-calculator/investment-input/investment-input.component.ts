@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, output } from '@angular/core';
+import { Component, output } from '@angular/core';
 import { InvestmentInput } from '../investment-calculator.model';
 import { InvestmentCalculatorService } from '../investment-calculator.service';
 
@@ -13,7 +13,6 @@ export class InvestmentInputComponent {
     private investmentCalculatorService: InvestmentCalculatorService
   ) {}
   // Could use output() function (>v18).
-  // @Output() formSubmitted = new EventEmitter<InvestmentInput>();
   formSubmitted = output<InvestmentInput>();
 
   userInput = {} as InvestmentInput;
