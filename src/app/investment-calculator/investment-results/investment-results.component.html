@@ -1,3 +1,4 @@
+@if(results && results.length > 0){
 <table>
   <thead>
     <tr>
@@ -9,16 +10,15 @@
     </tr>
   </thead>
   <tbody>
-    @for(result of results; track 01 ){
+    @for(result of results; track result.year ){
     <tr>
       <td>{{ result.year }}</td>
       <td>
         {{ result.valueEndOfYear | currency : "EUR" : true }}
       </td>
       <td>
-        {{ result.annualInvestment | currency : "EUR" : true }}
+        {{ result.interest | currency : "EUR" : true }}
       </td>
-
       <td>
         {{ result.totalInterest | currency : "EUR" : true }}
       </td>
@@ -29,3 +29,6 @@
     }
   </tbody>
 </table>
+} @else{
+<p class="center">Please enter values in the form.</p>
+}

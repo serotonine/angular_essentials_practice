@@ -23,26 +23,25 @@ export class InvestmentCalculatorService {
 
   calculateInvestmentResults() {
     this.reset();
-    this._investmentValue = this._userInput.initial_invest;
+    // Destructuring the Object (less verbose code).
+    const { initial_invest, duration, expected_return, annual_invest } =
+      this._userInput;
+    this._investmentValue = initial_invest;
 
-    for (let i = 0; i < this._userInput.duration; i++) {
+    for (let i = 0; i < duration; i++) {
       const year = i + 1;
       const interestEarnedInYear =
-        this._investmentValue * (this._userInput.expected_return / 100);
-      this._investmentValue +=
-        interestEarnedInYear + this._userInput.annual_invest;
+        this._investmentValue * (expected_return / 100);
+      this._investmentValue += interestEarnedInYear + annual_invest;
       const totalInterest =
-        this._investmentValue -
-        this._userInput.annual_invest * year -
-        this._userInput.initial_invest;
+        this._investmentValue - annual_invest * year - initial_invest;
       this._annualData.push({
         year: year,
         interest: interestEarnedInYear,
         valueEndOfYear: this._investmentValue,
-        annualInvestment: this._userInput.annual_invest,
+        annualInvestment: annual_invest,
         totalInterest: totalInterest,
-        totalAmountInvested:
-          this._userInput.initial_invest + this._userInput.annual_invest * year,
+        totalAmountInvested: initial_invest + annual_invest * year,
       });
     }
 
