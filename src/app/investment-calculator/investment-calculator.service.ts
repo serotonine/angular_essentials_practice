@@ -9,7 +9,7 @@ import {
 export class InvestmentCalculatorService {
   private _investmentValue!: number;
   private _annualData: InvestmentOutput[] = [];
-  _userInput = {} as InvestmentInput;
+  private _userInput = {} as InvestmentInput;
 
   setUserInput(userInput: InvestmentInput) {
     this._userInput = userInput;
